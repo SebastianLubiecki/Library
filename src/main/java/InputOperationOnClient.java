@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class InputOperationOnClient {
@@ -10,9 +9,6 @@ public class InputOperationOnClient {
     public static void savingClientToFile() throws IOException {
 
         List<String> lines = Files.readAllLines(InterfaceInput_Output.pathTClientArchives());
-        for (String line : lines) {
-            System.out.println(line);
-        }
         List<Client> clients = lines.stream()
                 .map(x -> {
                     String[] splited = x.split(",");
@@ -39,14 +35,9 @@ public class InputOperationOnClient {
     }
 
     public static Client addNewClientToLibrary(List<Client> listOfClient) {// moze sety zamiast stringow?
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Type first name of the Client");
-        String firstName = scanner.nextLine();
-        System.out.println("Type lastName name of the Client");
-        String lastName = scanner.nextLine();
-        System.out.println("Type id of the Client");
-        String idOFTheClient = scanner.nextLine();
-        Client client = new Client(firstName, lastName, idOFTheClient);
+
+        Client client = new Client(InterfaceOfClient.getFirstNameOfClient(), InterfaceOfClient.getLastNameOfClient(),
+                InterfaceOfClient.getIdfClient());
         listOfClient.add(client);
         return (client);
     }

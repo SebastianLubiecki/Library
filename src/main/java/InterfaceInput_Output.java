@@ -9,7 +9,7 @@ public interface InterfaceInput_Output {
     }
 
     static Path pathTClientArchives() {
-        Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfBooks.csv");
+        Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfClients.csv");
         return path;
     }
 

@@ -2,7 +2,7 @@ public class Client {
 
     private String firstName;
     private String lastName;
-    private String ClientId;
+    private String ClientId;  // do zrobienia na inta
 
     public Client() {
     }
