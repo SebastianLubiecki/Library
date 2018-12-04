@@ -7,12 +7,12 @@ public class LendBookFromLibrary implements BookOperation {  //brak pelnego algo
 
         LendBookFromLibrary.changeStatus(client, book);
         InputOperationOnBook.savingBookToFile(book);
-        Menu.startingString();
+        Menu.startingMenu();
     }
 
     public static void changeStatus(List<Client> clientList, List<Book> bookList) throws IOException {
 
-
+        int indexOfClient = BookOperation.getIndexOfClient();
         int indexOfABook = BookOperation.getIndexOfBook();
         if (bookList.get(indexOfABook).isStatus()) {
             bookList.get(indexOfABook).setStatus(false);

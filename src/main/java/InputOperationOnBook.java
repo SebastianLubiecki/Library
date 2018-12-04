@@ -7,27 +7,24 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class InputOperationOnBook implements BookOperation{
+public class InputOperationOnBook implements BookOperation {
 
 
-    public static void addNewBookToLibrary(List<Book> listOfBook) {
+    public static Book addNewBookToLibrary() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Type name of the book");
         String nameOfTheBook = scanner.nextLine();
         System.out.println("Type id of the book");
         int idOFTheBook = scanner.nextInt();
         Book book = new Book(nameOfTheBook, idOFTheBook, true);
-        listOfBook.add(book);
+        return book;
     }
 
     public static void savingBookToFile() throws IOException {
-        System.out.println("List of book you can lend from library: ");
 
         Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfBooks.csv");
         List<String> lines = Files.readAllLines(path);
-        for (String line : lines) {
-            System.out.println(line);
-        }
+
         List<Book> books = lines.stream()
                 .map(x -> {
                     String[] splited = x.split(",");
@@ -40,9 +37,9 @@ public class InputOperationOnBook implements BookOperation{
                 .collect(Collectors.toList());
 
         try (PrintWriter printWriter = new PrintWriter(String.valueOf(path))) {
-            InputOperationOnBook.addNewBookToLibrary(books);
+            books.add(InputOperationOnBook.addNewBookToLibrary());
             for (Book book : books) {
-                printWriter.print(book + " \n");
+                printWriter.print(book + "\n");
             }
         }
     }
@@ -53,7 +50,7 @@ public class InputOperationOnBook implements BookOperation{
 
         try (PrintWriter printWriter = new PrintWriter(String.valueOf(path))) {
             for (Book book : bookList) {
-                printWriter.print(book + " \n");
+                printWriter.print(book + "\n");
             }
         }
     }

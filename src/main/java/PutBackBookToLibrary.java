@@ -14,7 +14,7 @@ public class PutBackBookToLibrary implements BookOperation {
     public static void changeStatus(List<Client> clientList, List<Book> bookList) throws IOException {
         //brak pelnego algorytmu, brak powiazania z klientem
         int indexOfABook = BookOperation.getIndexOfBook();
-        if (bookList.get(indexOfABook).isStatus()) {
+        if (!bookList.get(indexOfABook).isStatus()) {
             bookList.get(indexOfABook).setStatus(true);
         } else {
             System.out.println("You can't lend this book.");

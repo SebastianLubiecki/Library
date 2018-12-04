@@ -2,7 +2,7 @@ public class Book {
 
     private String title;
     private int id;
-    private boolean status;
+    private boolean status ;
 
     public Book() {
     }
@@ -10,7 +10,7 @@ public class Book {
     public Book(String title, int id, boolean status) {
         this.title = title;
         this.id = id;
-        this.status = status;
+        this.status = true;
     }
 
     public String getTitle() {

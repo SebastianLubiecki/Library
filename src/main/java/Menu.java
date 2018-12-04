@@ -29,11 +29,11 @@ public class Menu {
             //Dodawanie nowych pozycji
             if (valueTypingByOperator.equals("D")) {
                 System.out.println("Add new book to the list");
-                OperationOnABook.savingBookToFile();
+                InputOperationOnBook.savingBookToFile();
             }
             //Wyswietlanie klientow
             if (valueTypingByOperator.equals("W")) {
-                OperationOnAClient.showListOfAllClient();
+                OutputOperationOnClient.showListOfAllClient();
             }
             //Dokonywanie rezerwacji
             if (valueTypingByOperator.equals("R")) {
@@ -42,12 +42,12 @@ public class Menu {
             }
             //Wypożyczenie
             if (valueTypingByOperator.equals("L")) {
-                LendBookFromLibrary.lendBook(OperationOnAClient.returnListOfClient(),
+                LendBookFromLibrary.lendBook(OutputOperationOnClient.returnListOfClient(),
                         OutputOperationOnBook.returnListOfBook());
             }
             //Zwrot
             if (valueTypingByOperator.equals("Z")) {
-                PutBackBookToLibrary.putBackBookToLibrary(OperationOnAClient.returnListOfClient(),
+                PutBackBookToLibrary.putBackBookToLibrary(OutputOperationOnClient.returnListOfClient(),
                         OutputOperationOnBook.returnListOfBook());
             }
             //Lista Książek
@@ -56,7 +56,7 @@ public class Menu {
             }
             //Dodawanie nowego klienta
             if (valueTypingByOperator.equals("C")) {
-                OperationOnAClient.savingClientToFile();
+                InputOperationOnClient.savingClientToFile();
             }
         }
     }

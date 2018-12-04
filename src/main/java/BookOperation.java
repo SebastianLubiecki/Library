@@ -5,7 +5,7 @@ public interface BookOperation {
 
     static int getIndexOfClient() throws IOException {
         Scanner scanner = new Scanner(System.in);
-        OperationOnAClient.showListOfAllClient();
+        OutputOperationOnClient.showListOfAllClient();
         System.out.println("Type index of Client: ");
         int clientIndex = scanner.nextInt();
         return clientIndex;
