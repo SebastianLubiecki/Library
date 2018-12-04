@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class PutBackBookToLibrary implements BookOperation {
+public class PutBackBookToLibrary implements InterfaceOfBook {
 
     public static void putBackBookToLibrary(List<Client> client, List<Book> book) throws IOException {
 
@@ -13,7 +13,7 @@ public class PutBackBookToLibrary implements BookOperation {
 
     public static void changeStatus(List<Client> clientList, List<Book> bookList) throws IOException {
         //brak pelnego algorytmu, brak powiazania z klientem
-        int indexOfABook = BookOperation.getIndexOfBook();
+        int indexOfABook = InterfaceOfBook.getIndexOfBook();
         if (!bookList.get(indexOfABook).isStatus()) {
             bookList.get(indexOfABook).setStatus(true);
         } else {

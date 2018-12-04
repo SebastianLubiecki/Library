@@ -1,26 +1,22 @@
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
-
 import java.util.stream.Collectors;
 
-public class OutputOperationOnBook implements BookOperation {
+public class OutputOperationOnBook implements InterfaceOfBook {
 
 
     public static void showListOfBook() throws IOException {
-        Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfBooks.csv");
-        List<String> lines = Files.readAllLines(path);
+
+        List<String> lines = Files.readAllLines(InterfaceInput_Output.pathToBookArchives());
         for (String line : lines) {
             System.out.println(line);
         }
     }
 
     public static List<Book> returnListOfBook() throws IOException {
-        Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfBooks.csv");
-        List<String> lines = Files.readAllLines(path);
 
+        List<String> lines = Files.readAllLines(InterfaceInput_Output.pathToBookArchives());
         List<Book> books = lines.stream()
                 .map(x -> {
                     String[] splited = x.split(",");

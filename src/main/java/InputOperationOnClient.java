@@ -1,8 +1,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -10,8 +8,8 @@ import java.util.stream.Collectors;
 public class InputOperationOnClient {
 
     public static void savingClientToFile() throws IOException {
-        Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfClients.csv");
-        List<String> lines = Files.readAllLines(path);
+
+        List<String> lines = Files.readAllLines(InterfaceInput_Output.pathTClientArchives());
         for (String line : lines) {
             System.out.println(line);
         }
@@ -26,7 +24,7 @@ public class InputOperationOnClient {
                 })
                 .collect(Collectors.toList());
 
-        PrintWriter printWriter = new PrintWriter(String.valueOf(path));
+        PrintWriter printWriter = new PrintWriter(String.valueOf(InterfaceInput_Output.pathTClientArchives()));
         InputOperationOnClient.addNewClientToLibrary(clients);
         try {
             for (Client client : clients) {
@@ -48,7 +46,7 @@ public class InputOperationOnClient {
         String lastName = scanner.nextLine();
         System.out.println("Type id of the Client");
         String idOFTheClient = scanner.nextLine();
-        Client client= new Client(firstName, lastName, idOFTheClient);
+        Client client = new Client(firstName, lastName, idOFTheClient);
         listOfClient.add(client);
         return (client);
     }

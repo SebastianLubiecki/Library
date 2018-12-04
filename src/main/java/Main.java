@@ -6,6 +6,5 @@ public class Main {
 
         Menu.startingString();
         Menu.startingMenu();
-
     }
 }

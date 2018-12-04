@@ -1,29 +1,22 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class InputOperationOnBook implements BookOperation {
+public class InputOperationOnBook implements InterfaceOfBook {
 
 
-    public static Book addNewBookToLibrary() throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Type name of the book");
-        String nameOfTheBook = scanner.nextLine();
-        System.out.println("Type id of the book");
-        int idOFTheBook = scanner.nextInt();
-        Book book = new Book(nameOfTheBook, idOFTheBook, true);
+    public static Book addNewBookToLibrary() {
+
+        Book book = new Book(InterfaceOfBook.getNameOfBook(), InterfaceOfBook.getIdOfBook(), true);
         return book;
     }
 
     public static void savingBookToFile() throws IOException {
 
-        Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfBooks.csv");
-        List<String> lines = Files.readAllLines(path);
+
+        List<String> lines = Files.readAllLines(InterfaceInput_Output.pathToBookArchives());
 
         List<Book> books = lines.stream()
                 .map(x -> {
@@ -36,7 +29,7 @@ public class InputOperationOnBook implements BookOperation {
                 })
                 .collect(Collectors.toList());
 
-        try (PrintWriter printWriter = new PrintWriter(String.valueOf(path))) {
+        try (PrintWriter printWriter = new PrintWriter(String.valueOf(InterfaceInput_Output.pathToBookArchives()))) {
             books.add(InputOperationOnBook.addNewBookToLibrary());
             for (Book book : books) {
                 printWriter.print(book + "\n");
@@ -46,9 +39,8 @@ public class InputOperationOnBook implements BookOperation {
 
     public static void savingBookToFile(List<Book> bookList) throws IOException {
 
-        Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfBooks.csv");
 
-        try (PrintWriter printWriter = new PrintWriter(String.valueOf(path))) {
+        try (PrintWriter printWriter = new PrintWriter(String.valueOf(InterfaceInput_Output.pathToBookArchives()))) {
             for (Book book : bookList) {
                 printWriter.print(book + "\n");
             }

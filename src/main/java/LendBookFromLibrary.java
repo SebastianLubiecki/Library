@@ -1,7 +1,8 @@
 import java.io.IOException;
 import java.util.List;
 
-public class LendBookFromLibrary implements BookOperation {  //brak pelnego algorytmu, powiazania go z klientem
+public class LendBookFromLibrary implements InterfaceOfBook {
+    //brak pelnego algorytmu, powiazania go z klientem
 
     public static void lendBook(List<Client> client, List<Book> book) throws IOException {
 
@@ -12,8 +13,8 @@ public class LendBookFromLibrary implements BookOperation {  //brak pelnego algo
 
     public static void changeStatus(List<Client> clientList, List<Book> bookList) throws IOException {
 
-        int indexOfClient = BookOperation.getIndexOfClient();
-        int indexOfABook = BookOperation.getIndexOfBook();
+        int indexOfClient = InterfaceOfClient.getIndexOfClient();
+        int indexOfABook = InterfaceOfBook.getIndexOfBook();
         if (bookList.get(indexOfABook).isStatus()) {
             bookList.get(indexOfABook).setStatus(false);
         } else {
