@@ -8,13 +8,20 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class OperationOnAClient {
-
-    public static List<Client> showListOfAllClient() throws IOException {
+    public static void showListOfAllClient() throws IOException {
         Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfClients.csv");
         List<String> lines = Files.readAllLines(path);
         for (String line : lines) {
             System.out.println(line);
         }
+
+    }
+
+
+    public static List<Client> returnListOfClient() throws IOException {
+        Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfClients.csv");
+        List<String> lines = Files.readAllLines(path);
+
         List<Client> clients = lines.stream()
                 .map(x -> {
                     String[] splited = x.split(",");

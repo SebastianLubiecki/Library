@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class OperationOnABook {
-    public static void addNewBookToLibrary(List listOfBook) {
+    public static void addNewBookToLibrary(List <Book> listOfBook) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Type name of the book");
         String nameOfTheBook = scanner.nextLine();
@@ -23,6 +23,9 @@ public class OperationOnABook {
 
         Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfBooks.csv");
         List<String> lines = Files.readAllLines(path);
+        for (String line: lines){
+            System.out.println(line);
+        }
         List<Book> books = lines.stream()
                 .map(x -> {
                     String[] splited = x.split(",");
@@ -36,8 +39,8 @@ public class OperationOnABook {
 
         try (PrintWriter printWriter = new PrintWriter(String.valueOf(path))) {
             OperationOnABook.addNewBookToLibrary(books);
-            for (int i = 0; i < books.size(); i++) {
-                printWriter.print(books.get(i) + " \n");
+            for (Book book : books) {
+                printWriter.print(book + " \n");
             }
         }
     }
@@ -92,7 +95,6 @@ public class OperationOnABook {
 
     public static void lendABook(Client client, Book book) throws IOException { //brak pelnego algorytmu brak LocalDate daty zwrotu, problem ze zmiana statusu ksiazki
         if (book.isStatus()) {
-
             book.setStatus(false);
         } else {
             System.out.println("You can't lend this book.");
