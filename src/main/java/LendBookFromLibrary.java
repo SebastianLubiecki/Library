@@ -1,16 +1,7 @@
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class LendBookFromLibrary implements InterfaceOfBook {
-    //brak pelnego algorytmu, powiazania go z klientem
-
-    public static void lendBook(List<Client> client, List<Book> book) throws IOException {
-// metoda raczej do wywalenia byla posrednia do changeStatus ale nie wykonuje nic konkretnego
-        LendBookFromLibrary.changeStatus(client, book);
-        Menu.startingMenu();
-    }
 
     public static void changeStatus(List<Client> clientList, List<Book> bookList) throws IOException {
 
@@ -25,6 +16,10 @@ public class LendBookFromLibrary implements InterfaceOfBook {
         }
     }
 
-
+    public static void lendBook(List<Client> client, List<Book> book) throws IOException {
+// metoda raczej do wywalenia byla posrednia do changeStatus ale nie wykonuje nic konkretnego
+        LendBookFromLibrary.changeStatus(client, book);
+        Menu.startingMenu();
+    }
 
 }

@@ -5,10 +5,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class OutputOperaqtionOnLend {
+public interface InterfaceOfLend {
 
-
-    public static void removeLendOperationFromFile() throws IOException {
+    static List<Lend> returnListOfLend() throws IOException {
 
         List<String> lines = Files.readAllLines(InterfaceInput_Output.pathToLendArchives());
         List<Lend> lends = lines.stream()
@@ -22,11 +21,15 @@ public class OutputOperaqtionOnLend {
                     return lend;
                 })
                 .collect(Collectors.toList());
+        return lends;
+    }
+
+    static void removeLendOperationFromFile() throws IOException {
 
         PrintWriter printWriter = new PrintWriter(String.valueOf(InterfaceInput_Output.pathToLendArchives()));
-        lends.remove(InterfaceOfBook.getIndexOfBook());
+        returnListOfLend().remove(InterfaceOfBook.getIndexOfBook());
         try {
-            for (Lend lend : lends) {
+            for (Lend lend : returnListOfLend()) {
                 printWriter.print(lend + "\n"); // \n nic chyba nie daje, do przerobienia
             }
             printWriter.close();
@@ -35,6 +38,7 @@ public class OutputOperaqtionOnLend {
                 printWriter.close();
             }
         }
+
     }
 
 }

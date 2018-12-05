@@ -1,29 +1,15 @@
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class InputOperationOnClient {
 
     public static void savingClientToFile() throws IOException {
 
-        List<String> lines = Files.readAllLines(InterfaceInput_Output.pathTClientArchives());
-        List<Client> clients = lines.stream()
-                .map(x -> {
-                    String[] splited = x.split(",");
-                    Client client = new Client();
-                    client.setFirstName(splited[0]);
-                    client.setLastName(splited[1]);
-                    client.setClientId(splited[2]);
-                    return client;
-                })
-                .collect(Collectors.toList());
-
         PrintWriter printWriter = new PrintWriter(String.valueOf(InterfaceInput_Output.pathTClientArchives()));
-        InputOperationOnClient.addNewClientToLibrary(clients);
+        InputOperationOnClient.addNewClientToLibrary(InterfaceOfClient.returnListOfClients());
         try {
-            for (Client client : clients) {
+            for (Client client : InterfaceOfClient.returnListOfClients()) {
                 printWriter.print(client + "\n"); // \n nic chyba nie daje, do przerobienia
             }
             printWriter.close();

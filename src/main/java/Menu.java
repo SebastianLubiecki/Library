@@ -33,7 +33,7 @@ public class Menu {
             }
             //Wyswietlanie klientow
             if (valueTypingByOperator.equals("W")) {
-                OutputOperationOnClient.showListOfAllClient();
+                InterfaceOfClient.showListOfAllClient();
             }
             //Dokonywanie rezerwacji
             if (valueTypingByOperator.equals("R")) {
@@ -42,17 +42,17 @@ public class Menu {
             }
             //Wypożyczenie
             if (valueTypingByOperator.equals("L")) {
-                LendBookFromLibrary.changeStatus(OutputOperationOnClient.returnListOfClient(),
-                        OutputOperationOnBook.returnListOfBook());
+                LendBookFromLibrary.changeStatus(InterfaceOfClient.returnListOfClients(),
+                        InterfaceOfBook.returnListOfBook());
             }
             //Zwrot
-            if (valueTypingByOperator.equals("Z")) {
-                PutBackBookToLibrary.changeStatus(OutputOperationOnClient.returnListOfClient(),
-                        OutputOperationOnBook.returnListOfBook());
+            if (valueTypingByOperator.equals("Z")) {// przy zwrocie wywala blad nie wiem jeszcze czemu :(
+                PutBackBookToLibrary.changeStatus(InterfaceOfClient.returnListOfClients(),
+                        InterfaceOfBook.returnListOfBook());
             }
             //Lista Książek
             if (valueTypingByOperator.equals("B")) {
-                OutputOperationOnBook.showListOfBook();
+                InterfaceOfBook.showListOfBook();
             }
             //Dodawanie nowego klienta
             if (valueTypingByOperator.equals("C")) {
