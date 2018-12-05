@@ -24,10 +24,10 @@ public interface InterfaceOfLend {
         return lends;
     }
 
-    static void removeLendOperationFromFile() throws IOException {
+    static void removeLendOperationFromFile(int indexOfBookToRemove) throws IOException {
 
         PrintWriter printWriter = new PrintWriter(String.valueOf(InterfaceInput_Output.pathToLendArchives()));
-        returnListOfLend().remove(InterfaceOfBook.getIndexOfBook());
+        returnListOfLend().remove(indexOfBookToRemove);
         try {
             for (Lend lend : returnListOfLend()) {
                 printWriter.print(lend + "\n"); // \n nic chyba nie daje, do przerobienia

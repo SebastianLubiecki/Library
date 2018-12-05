@@ -5,7 +5,7 @@ public class LendBookFromLibrary implements InterfaceOfBook {
 
     public static void changeStatus(List<Client> clientList, List<Book> bookList) throws IOException {
 
-        int indexOfClient = InterfaceOfClient.getIndexOfClient();
+        //int indexOfClient = InterfaceOfClient.getIndexOfClient();
         int indexOfABook = InterfaceOfBook.getIndexOfBook();
         if (bookList.get(indexOfABook).isStatus()) {
             bookList.get(indexOfABook).setStatus(false);
