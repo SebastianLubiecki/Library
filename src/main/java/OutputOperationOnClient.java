@@ -27,6 +27,6 @@ public class OutputOperationOnClient {
                     return client;
                 })
                 .collect(Collectors.toList());
-        return clients; // jak bedzie return clients to zwraca ladnie wszystkich clientow z petli for i pozniej brzydko liste. Problem do rozwiazania
+        return clients;
     }
 }
