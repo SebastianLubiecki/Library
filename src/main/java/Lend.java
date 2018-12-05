@@ -2,16 +2,19 @@ import java.time.LocalDate;
 
 public class Lend {
 
-    Book book;
-    Client client;
+    int bookId;
+    String clientId;
     private LocalDate dateOfLend;
     private LocalDate dateOfReturn;
 
+    public Lend() {
 
-    public Lend(Book book, Client client, LocalDate dateOfLend, LocalDate dateOfReturn) {
+    }
 
-        this.book = book;
-        this.client = client;
+    public Lend(int bookId, String clientId, LocalDate dateOfLend, LocalDate dateOfReturn) {
+
+        this.bookId = bookId;
+        this.clientId = clientId;
         this.dateOfLend = dateOfLend;
         this.dateOfReturn = dateOfReturn;
     }
@@ -32,19 +35,19 @@ public class Lend {
         this.dateOfReturn = dateOfReturn;
     }
 
-    public Book getBook() {
-        return book;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
-    public Client getClient() {
-        return client;
+    public String getClient() {
+        return clientId;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 }

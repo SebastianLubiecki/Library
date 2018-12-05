@@ -13,6 +13,7 @@ public interface InterfaceOfBook {
         return bookIndex;
     }
 
+
     static String getNameOfBook() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Type name of the book");

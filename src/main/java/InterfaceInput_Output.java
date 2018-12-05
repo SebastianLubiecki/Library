@@ -13,4 +13,8 @@ public interface InterfaceInput_Output {
         return path;
     }
 
+    static Path pathToLendArchives() {
+        Path path = Paths.get("C:\\Users\\User\\IdeaProjects\\WypożyczalniaFilmów\\src\\main\\java\\ListOfLend.csv");
+        return path;
+    }
 }
