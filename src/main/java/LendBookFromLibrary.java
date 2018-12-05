@@ -19,6 +19,7 @@ public class LendBookFromLibrary implements InterfaceOfBook {
         int indexOfABook = InterfaceOfBook.getIndexOfBook();
         if (bookList.get(indexOfABook).isStatus()) {
             bookList.get(indexOfABook).setStatus(false);
+            InputOperationOnLend.savingLendOperationToFile();
         } else {
             System.out.println("You can't lend this book.");
         }

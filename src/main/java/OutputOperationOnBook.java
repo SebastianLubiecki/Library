@@ -29,6 +29,8 @@ public class OutputOperationOnBook implements InterfaceOfBook {
                 .collect(Collectors.toList());
         return books;
     }
+
+
     public static int returnValueOfBookId () throws IOException{
 
         List<String> lines = Files.readAllLines(InterfaceInput_Output.pathToBookArchives());
