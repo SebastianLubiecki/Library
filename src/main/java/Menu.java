@@ -42,12 +42,12 @@ public class Menu {
             }
             //Wypożyczenie
             if (valueTypingByOperator.equals("L")) {
-                LendBookFromLibrary.lendBook(OutputOperationOnClient.returnListOfClient(),
+                LendBookFromLibrary.changeStatus(OutputOperationOnClient.returnListOfClient(),
                         OutputOperationOnBook.returnListOfBook());
             }
             //Zwrot
             if (valueTypingByOperator.equals("Z")) {
-                PutBackBookToLibrary.putBackBookToLibrary(OutputOperationOnClient.returnListOfClient(),
+                PutBackBookToLibrary.changeStatus(OutputOperationOnClient.returnListOfClient(),
                         OutputOperationOnBook.returnListOfBook());
             }
             //Lista Książek

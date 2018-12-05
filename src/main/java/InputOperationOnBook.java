@@ -37,7 +37,7 @@ public class InputOperationOnBook implements InterfaceOfBook {
         }
     }
 
-    public static void savingBookToFile(List<Book> bookList) throws IOException {
+    public static void savingGivenBookListToFile(List<Book> bookList) throws IOException {
 
         try (PrintWriter printWriter = new PrintWriter(String.valueOf(InterfaceInput_Output.pathToBookArchives()))) {
             for (Book book : bookList) {
