@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class OutputOperaqtionOnLend {
 
 
-    public static void removeLendOperationfromFile() throws IOException {
+    public static void removeLendOperationFromFile() throws IOException {
 
         List<String> lines = Files.readAllLines(InterfaceInput_Output.pathToLendArchives());
         List<Lend> lends = lines.stream()

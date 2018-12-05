@@ -16,7 +16,7 @@ public class PutBackBookToLibrary implements InterfaceOfBook {
         int indexOfABook = InterfaceOfBook.getIndexOfBook();
         if (!bookList.get(indexOfABook).isStatus()) {
             bookList.get(indexOfABook).setStatus(true);
-            OutputOperaqtionOnLend.removeLendOperationfromFile();
+            OutputOperaqtionOnLend.removeLendOperationFromFile();
         } else {
             System.out.println("You can't lend this book.");
         }
