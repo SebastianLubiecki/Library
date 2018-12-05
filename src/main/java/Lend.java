@@ -50,4 +50,10 @@ public class Lend {
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
+
+    @Override
+    public String toString() {
+        return bookId + "," + clientId + "," + dateOfLend +
+                "," + dateOfReturn;
+    }
 }
